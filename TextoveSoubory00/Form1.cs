@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
 namespace Soubory
 {
     public partial class Form1 : Form
@@ -33,14 +32,23 @@ namespace Soubory
             //Pro zápis do textového souboru použijeme třídu StreamWriter
             //- slouží pro otevření konkrétního textového souboru (pokud neexistuje - vytvoří se)
             //  a má metody pro zápis do textového souboru (Write a WriteLine) 
-
+            StreamWriter streamWriter = new StreamWriter("Text.txt");
+            streamWriter.WriteLine("První");
+            streamWriter.WriteLine("Druhý");
+            streamWriter.WriteLine("Bohdan je rasista");
+            streamWriter.Write('A');
+            streamWriter.Write("***");
+            streamWriter.Write('X');
+            streamWriter.WriteLine();
+            streamWriter.Write("Bohdan je kořeň");
+            streamWriter.Close(); //toto musim !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-                        
-               
-            
+            StreamWriter streamWriter = new StreamWriter("Text.txt", true);
+            streamWriter.WriteLine("LOL");
+            streamWriter.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
