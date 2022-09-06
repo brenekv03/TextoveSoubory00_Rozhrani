@@ -58,10 +58,15 @@ namespace Soubory
 
             listBox1.Items.Clear();
             StreamReader streamReader = new StreamReader("Text.txt");
-            while(!streamReader.EndOfStream)
+            /*while(!streamReader.EndOfStream)
             {
                 string s = streamReader.ReadLine();
                 listBox1.Items.Add(s);
+            }*/
+            while(!streamReader.EndOfStream)
+            {
+                char c = (char)streamReader.Read();
+                listBox1.Items.Add(c);
             }
             streamReader.Close();
         }
