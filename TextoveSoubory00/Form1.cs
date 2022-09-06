@@ -55,6 +55,15 @@ namespace Soubory
         {
             //Přečte textový soubor po řádcích 
             //a každyý přečtený řádek zobrazí v listBox1
+
+            listBox1.Items.Clear();
+            StreamReader streamReader = new StreamReader("Text.txt");
+            while(!streamReader.EndOfStream)
+            {
+                string s = streamReader.ReadLine();
+                listBox1.Items.Add(s);
+            }
+            streamReader.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
