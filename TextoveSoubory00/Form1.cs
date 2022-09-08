@@ -98,7 +98,16 @@ namespace Soubory
 
             //Různé způsoby zápisu cesty: (Nelze jednoduše psát opačné lomítko)
             //Při programování aplikace používejte skoro vždy relativní cesty!!!
-
+            StreamWriter streamWriter = new StreamWriter("Text1.txt");//v aktualní složce
+            streamWriter.Close();
+            streamWriter = new StreamWriter("..\\..\\Text2.txt");
+            streamWriter.Close();
+            streamWriter = new StreamWriter("../../Text3.txt");
+            streamWriter.Close();
+            streamWriter = new StreamWriter(@"..\..\Text4.txt");
+            streamWriter.Close();
+            streamWriter = new StreamWriter(@"..\..\soubory\Text5.txt");
+            streamWriter.Close();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -107,10 +116,20 @@ namespace Soubory
             //Soubor vybereme pomocí komponenty OpenFileDialog nebo SaveFileDialog
             //Tyto dialogy nic neotevírají ani neukládají, jen nám umožní vybrat soubor, ostatní musíme naprogramovat sami
 
-
-
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                listBox3.Items.Clear();
+                StreamReader streamReader = new StreamReader(openFileDialog1.FileName);
+                while (!streamReader.EndOfStream)
+                {
+                    string s = streamReader.ReadLine();
+                    listBox3.Items.Add(s);
+                }
+            }
+            else MessageBox.Show("Nebyl vybrán soubor");
             //Vyzkoušet jiný způsob obsloužení dialogu!!!!
 
+            //savefiledialog je to samé
         }
 
         private void button9_Click(object sender, EventArgs e)
