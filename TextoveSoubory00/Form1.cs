@@ -171,7 +171,21 @@ namespace Soubory
 
         private void button10_Click(object sender, EventArgs e)
         {
+            //Pokud neurčíme kódování, bude Unicode
+            StreamWriter streamWriterU = new StreamWriter("KodovaniNeurceno.txt");
+            streamWriterU.WriteLine("vizáž");
+            streamWriterU.WriteLine("přešívaný");
+            streamWriterU.Close();
 
+
+
+            StreamWriter sw1250 = new StreamWriter("W1250.txt", false, Encoding.GetEncoding("Windows-1250"));
+            sw1250.WriteLine("vizáž");
+            sw1250.Close();
+
+            StreamWriter swDF = new StreamWriter("Default.txt", false, Encoding.Default);
+            swDF.WriteLine("vizáž");
+            swDF.Close();
         }
     }
 }
