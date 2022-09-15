@@ -152,7 +152,6 @@ namespace Soubory
                     string line = streamReader.ReadLine();
                     listBox4.Items.Add(line);
                     line += "*";
-                    listBox5.Items.Add(line);
                     streamWriter.WriteLine(line);
 
                 }
@@ -160,6 +159,12 @@ namespace Soubory
                 streamWriter.Close();
                 File.Delete(openFileDialog1.FileName);
                 File.Move("pomocnik.txt", openFileDialog1.FileName);
+                //zobrazení opraveného souboru
+                streamReader = new StreamReader(openFileDialog1.FileName);
+                while(!streamReader.EndOfStream)
+                {
+                    listBox5.Items.Add(streamReader.ReadLine());
+                }
             }
             
         }
